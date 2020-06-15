@@ -1,0 +1,35 @@
+{:aliases
+   {:dev {:extra-deps {io.aviso/logging #:mvn{:version "0.3.2"},
+                       lambdaisland/kaocha #:mvn{:version "0.0-529"},
+                       lambdaisland/kaocha-cloverage #:mvn{:version "0.0-32"},
+                       lambdaisland/kaocha-junit-xml #:mvn{:version "0.0-70"},
+                       org.apache.kafka/kafka-clients {:mvn/version "2.3.1"},
+                       org.apache.kafka/kafka-streams-test-utils
+                         #:mvn{:version "2.3.1"},
+                       org.apache.kafka/kafka_2.11 #:mvn{:version "2.3.1"},
+                       org.clojure/test.check #:mvn{:version "0.9.0"}}},
+    :runner
+      {:extra-deps
+         #:com.cognitect{test-runner
+                           {:git/url
+                              "https://github.com/cognitect-labs/test-runner",
+                            :sha "76568540e7f40268ad2b646110f237a60295fa3c"}},
+       :main-opts ["-m" "cognitect.test-runner" "-d" "test"]},
+    :test {:extra-deps #:org.clojure{test.check #:mvn{:version "RELEASE"}},
+           :extra-paths ["test"]}},
+ :deps {aleph #:mvn{:version "0.4.6"},
+        clj-time #:mvn{:version "0.15.1"},
+        danlentz/clj-uuid {:exclusions [primitive-math], :mvn/version "0.1.7"},
+        io.confluent/kafka-avro-serializer #:mvn{:version "5.3.1"},
+        io.confluent/kafka-schema-registry-client
+          {:exclusions [com.fasterxml.jackson.core/jackson-databind],
+           :mvn/version "5.3.1"},
+        org.apache.kafka/kafka-clients #:mvn{:version "2.3.1"},
+        org.apache.kafka/kafka-streams #:mvn{:version "2.3.1"},
+        org.apache.kafka/kafka-streams-test-utils #:mvn{:version "2.3.1"},
+        org.clojure/clojure #:mvn{:version "1.10.1"},
+        org.clojure/core.cache #:mvn{:version "0.7.2"},
+        org.clojure/data.fressian #:mvn{:version "0.2.1"},
+        org.clojure/data.json #:mvn{:version "0.2.6"},
+        org.clojure/tools.logging #:mvn{:version "0.4.1"}},
+ :mvn/repos {"confluent" {:url "https://packages.confluent.io/maven/"}}}
